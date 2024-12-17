@@ -3,17 +3,14 @@ pollutantmean <- function(directory, pollutant, id = 1:332){
   result <- 0
   entries <- 0
   name <- ""
-  print(pollutant)
   for (i in id) {
     name<- formatC(i, width=3, flag="0")
     file <- paste(directory, '/', name, '.csv', sep='')
     data <- read.csv(file)
-    print(data)
-    clean <- data[!is.na(data$nitrate), ]
-    print(clean)
-    entries <- entries + nrow(clean)
+    poldata <-subset(data, select = pollutant)
+    entries <- sum(!is.na(poldata))
     print(entries)
-    totalpol <- totalpol + sum(clean$nitrate)
+    totalpol <- totalpol + sum(poldata, na.rm=TRUE)
     print(totalpol)
     result = totalpol/entries
     print(result)
