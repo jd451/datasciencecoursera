@@ -8,12 +8,10 @@ pollutantmean <- function(directory, pollutant, id = 1:332){
     file <- paste(directory, '/', name, '.csv', sep='')
     data <- read.csv(file)
     poldata <-subset(data, select = pollutant)
-    entries <- sum(!is.na(poldata))
-    print(entries)
+    entries <- entries + sum(!is.na(poldata))
     totalpol <- totalpol + sum(poldata, na.rm=TRUE)
-    print(totalpol)
     result = totalpol/entries
-    print(result)
- }
+  }
+  print(result)
 }
  
