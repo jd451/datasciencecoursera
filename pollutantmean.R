@@ -11,13 +11,12 @@ pollutantmean <- function(directory, pollutant, id = 1:332){
     print(data)
     clean <- data[!is.na(data$nitrate), ]
     print(clean)
-#    entries <- entries + nrow(clean)
- #   print(entries)
-  #  print(clean)
-  #  totalpol <- totalpol + sum(clean)
-  #  print(totalpol)
-#    result = totalpol/entries
-#    print(result)
+    entries <- entries + nrow(clean)
+    print(entries)
+    totalpol <- totalpol + sum(clean$nitrate)
+    print(totalpol)
+    result = totalpol/entries
+    print(result)
  }
 }
  
