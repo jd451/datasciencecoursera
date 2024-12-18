@@ -18,5 +18,4 @@ complete <- function(directory, ident=1:332){
     #Add the row
     df <- rbind(df, new.row)
   }
-  print(df)
 }
