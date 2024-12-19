@@ -6,4 +6,7 @@ corr <- function(directory, threshold =0){
   
   #Create new dataset of files that pass threshold
   above <-df[df$nobs > threshold,]
+  print(above)
+  
+  
 }
